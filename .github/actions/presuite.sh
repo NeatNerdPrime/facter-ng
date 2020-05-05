@@ -32,8 +32,13 @@ puppet config set facterng true
 
 agent_facter_ng_version=`facter-ng --version | tr -d '\r'`
 
-#rm -rf /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/*
-#cp -r $cwd/$FACTER_4_ROOT/* /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/
+rm -rf /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/*
+echo "-------- after removing facts"
+ls -la /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/*
+cp -r $cwd/$FACTER_4_ROOT/* /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/
+echo "~~~~~~~~~ after cp facts"
+ls -la /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/*
+
 #cp /opt/puppetlabs/puppet/bin/facter-ng /opt/puppetlabs/bin/
 #mv /opt/puppetlabs/bin/facter-ng /opt/puppetlabs/bin/facter
 
