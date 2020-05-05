@@ -32,13 +32,16 @@ puppet config set facterng true
 
 agent_facter_ng_version=`facter-ng --version | tr -d '\r'`
 
-cp -r $cwd/$FACTER_4_ROOT/* /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/
-mv /opt/puppetlabs/puppet/bin/facter-ng /opt/puppetlabs/bin/facter
+#rm -rf /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/*
+#cp -r $cwd/$FACTER_4_ROOT/* /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/
+#cp /opt/puppetlabs/puppet/bin/facter-ng /opt/puppetlabs/bin/
+#mv /opt/puppetlabs/bin/facter-ng /opt/puppetlabs/bin/facter
 
 facter -v
 puppet facts | grep facterversion
+puppet facts
 
-printf '\nBeaker tests\n\n'
-cd $cwd/$FACTER_3_ROOT/acceptance
-beaker exec tests --test-tag-exclude=server,facter_3 --test-tag-or=risk:high,audit:high 2>&1 | tee results.txt
-sed -n '/Failed Tests Cases:/,/Skipped Tests Cases:/p' results.txt | grep 'Test Case' | awk {'print $3'}
+#printf '\nBeaker tests\n\n'
+#cd $cwd/$FACTER_3_ROOT/acceptance
+#beaker exec tests --test-tag-exclude=server,facter_3 --test-tag-or=risk:high,audit:high 2>&1 | tee results.txt
+#sed -n '/Failed Tests Cases:/,/Skipped Tests Cases:/p' results.txt | grep 'Test Case' | awk {'print $3'}
