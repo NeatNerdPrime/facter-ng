@@ -40,8 +40,8 @@ jobs:
 
       - name: Fix permissions
         run: sudo chmod a+w /opt /home/runner/ /usr/share
-          sudo chmod a-w /opt /home/runner /usr/share
-          sudo chmod -R a-w /usr/share/rust /home/runner/.config
+#          sudo chmod a-w /opt /home/runner /usr/share
+#          sudo chmod -R a-w /usr/share/rust /home/runner/.config
 
       - name: Run acceptance tests
         run: sudo -E bash -c facter_4/.github/actions/presuite.sh
