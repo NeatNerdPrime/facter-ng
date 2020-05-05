@@ -39,11 +39,10 @@ echo "-------- after removing facts"
 echo "~~~~~~~~~ after cp facts"
 #ls -la /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/*
 
-#cp -rf $cwd/$FACTER_4_ROOT/. /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/
-#cp -rf $cwd/$FACTER_4_ROOT/VERSION /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/VERSION
+cp -rf $cwd/$FACTER_4_ROOT/. /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/
 ls -la /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/*
 echo "??????"
-$cwd/$FACTER_4_ROOT/bin/facter
+#$cwd/$FACTER_4_ROOT/bin/facter
 
 #cp /opt/puppetlabs/puppet/bin/facter-ng /opt/puppetlabs/bin/
 #mv /opt/puppetlabs/bin/facter-ng /opt/puppetlabs/bin/facter
