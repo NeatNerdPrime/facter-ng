@@ -41,7 +41,9 @@ facter -v
 puppet facts | grep facterversion
 puppet facts
 
+
 #printf '\nBeaker tests\n\n'
 #cd $cwd/$FACTER_3_ROOT/acceptance
 #beaker exec tests --test-tag-exclude=server,facter_3 --test-tag-or=risk:high,audit:high 2>&1 | tee results.txt
 #sed -n '/Failed Tests Cases:/,/Skipped Tests Cases:/p' results.txt | grep 'Test Case' | awk {'print $3'}
+
