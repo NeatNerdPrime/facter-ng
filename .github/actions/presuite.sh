@@ -8,7 +8,7 @@ printf '\nInstall bundler\n\n'
 gem install bundler
 
 printf '\nInstall facter 4 dependencies\n\n'
-cd $cwd/$FACTER_4_ROOT && bundle install
+#cd $cwd/$FACTER_4_ROOT && bundle install
 
 printf '\nInstall facter 3 acceptance dependencies\n\n'
 cd $cwd/$FACTER_3_ROOT/acceptance && bundle install
@@ -32,12 +32,18 @@ puppet config set facterng true
 
 agent_facter_ng_version=`facter-ng --version | tr -d '\r'`
 
-rm -rf /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/*
+#rm -rf /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/*
 echo "-------- after removing facts"
-ls -la /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/*
-cp -r $cwd/$FACTER_4_ROOT/* /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/
+#ls -la /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version
+#cp -a $cwd/$FACTER_4_ROOT/. /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/
 echo "~~~~~~~~~ after cp facts"
+#ls -la /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/*
+
+#cp -rf $cwd/$FACTER_4_ROOT/. /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/
+#cp -rf $cwd/$FACTER_4_ROOT/VERSION /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/VERSION
 ls -la /opt/puppetlabs/puppet/lib/ruby/gems/2.5.0/gems/facter-ng-$agent_facter_ng_version/*
+echo "??????"
+$cwd/$FACTER_4_ROOT/bin/facter
 
 #cp /opt/puppetlabs/puppet/bin/facter-ng /opt/puppetlabs/bin/
 #mv /opt/puppetlabs/bin/facter-ng /opt/puppetlabs/bin/facter
